@@ -32,6 +32,34 @@ namespace csharp.Examples
             HeapifyUp();
         }
 
+        /// <summary>
+        /// Deletes the node if it exists and then reorders the heap
+        /// </summary>
+        /// <param name="num"></param>
+        public void Delete(int num)
+        {
+            // find num
+            // swap with end value
+            // delete end value
+            var foundIndex = -1;
+            for (var i = 0; i < items.Count; i++)
+            {
+                if (items[i] == num)
+                {
+                    foundIndex = i;
+                    Swap(i, items.Count - 1);
+                    items.RemoveAt(items.Count - 1);
+                    break;
+                }
+            }
+
+            // heapify from found index
+            if (foundIndex != -1 && foundIndex < items.Count)
+            {
+                HeapifyDown(foundIndex);
+            }
+        }
+
         private void HeapifyUp()
         {
             var index = items.Count - 1;
@@ -42,9 +70,9 @@ namespace csharp.Examples
             }
         }
 
-        private void HeapifyDown()
+        private void HeapifyDown(int index = 0)
         {
-            var index = 0;
+            //var index = 0;
             while (HasLeftChild(index))
             {
                 var biggerChildIndex = GetLeftChildIndex(index);
