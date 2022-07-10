@@ -17,8 +17,8 @@ namespace csharp
             Console.WriteLine("\n\n");
 
 
-
-            Profiler.profileFunction(() => Profiler.loopIncrementerTest(10000), "Loop Incrementer Test", true);
+            Console.WriteLine("Profiler example:");
+            Profiler.ProfileFunction(() => Profiler.LoopIncrementerDemo(10000), "Loop Incrementer Demo", true);
 
 
 
