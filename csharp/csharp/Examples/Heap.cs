@@ -4,7 +4,7 @@ using System.Text;
 
 namespace csharp.Examples
 {
-    internal class Heap
+    public class Heap
     {
         protected List<int> items = new List<int>();
 
@@ -30,6 +30,11 @@ namespace csharp.Examples
             items[indexTwo] = temp;
         }
 
+        /// <summary>
+        /// Returns the top of the heap without removing the value.
+        /// </summary>
+        /// <returns>value from the top of the heap</returns>
+        /// <exception cref="IndexOutOfRangeException"></exception>
         public int Peek()
         {
             if (items.Count == 0) throw new IndexOutOfRangeException();

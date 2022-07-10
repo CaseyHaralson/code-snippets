@@ -4,11 +4,17 @@ using System.Text;
 
 namespace csharp.Examples
 {
-    internal class HeapMax : Heap
+    public class HeapMax : Heap
     {
+        /// <summary>
+        /// Removes the top of the heap, reorders the heap, and returns the removed value
+        /// </summary>
+        /// <returns>value from the top of the heap</returns>
+        /// <exception cref="IndexOutOfRangeException"></exception>
         public int Poll()
         {
             if (items.Count == 0) throw new IndexOutOfRangeException();
+
             var item = items[0];
             items[0] = items[items.Count - 1];
             items.RemoveAt(items.Count - 1);
@@ -16,6 +22,10 @@ namespace csharp.Examples
             return item;
         }
 
+        /// <summary>
+        /// Adds the value to the heap and then reorders the heap
+        /// </summary>
+        /// <param name="num"></param>
         public void Add(int num)
         {
             items.Add(num);
